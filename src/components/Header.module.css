@@ -1,0 +1,191 @@
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--dark2);
+  box-shadow: 0 2px 30px rgba(255, 20, 147, 0.4);
+}
+
+/* ───── Ticker ───── */
+.ticker {
+  background: linear-gradient(90deg, #FF1493, #CC00FF, #FF6B00, #FF1493);
+  background-size: 300% 100%;
+  animation: gradientShift 4s linear infinite;
+  padding: 6px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  overflow: hidden;
+}
+
+.tickerLabel {
+  font-size: 0.72rem;
+  font-weight: 900;
+  white-space: nowrap;
+  background: white;
+  color: #FF1493;
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.5px;
+}
+
+.tickerContent {
+  flex: 1;
+  overflow: hidden;
+}
+
+.tickerText {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: white;
+  animation: fadeSlide 0.4s ease;
+  display: block;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+
+/* ───── Logo ───── */
+.mainHeader {
+  padding: 14px 0 10px;
+  background: linear-gradient(135deg, #080808 0%, #1a001a 50%, #080808 100%);
+  border-bottom: 1px solid rgba(255,20,147,0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.mainHeader::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 40% 80% at 20% 50%, rgba(204,0,255,0.08) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 80% at 80% 50%, rgba(255,20,147,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.logo {
+  display: flex;
+  align-items: baseline;
+  gap: 0;
+  text-decoration: none;
+  position: relative;
+}
+
+.logoH {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #FF1493;
+  text-shadow:
+    0 0 20px rgba(255,20,147,0.8),
+    0 0 40px rgba(255,20,147,0.4);
+  letter-spacing: -1px;
+}
+
+.logoBang {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: #FFE500;
+  text-shadow:
+    0 0 15px rgba(255,229,0,0.9),
+    0 0 30px rgba(255,229,0,0.5);
+  animation: bangPulse 1.2s ease-in-out infinite alternate;
+  display: inline-block;
+}
+
+.logoM {
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: #CC00FF;
+  text-shadow:
+    0 0 20px rgba(204,0,255,0.8),
+    0 0 40px rgba(204,0,255,0.4);
+  letter-spacing: -1px;
+}
+
+.logoEnd {
+  font-size: 2.4rem;
+  font-weight: 900;
+  color: #FF6B00;
+  text-shadow:
+    0 0 20px rgba(255,107,0,0.7),
+    0 0 40px rgba(255,107,0,0.3);
+  letter-spacing: -1px;
+}
+
+.taglineWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tagline {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  letter-spacing: 0.5px;
+  font-style: italic;
+}
+
+.splat {
+  font-size: 1.4rem;
+  animation: spin 3s linear infinite;
+}
+
+/* ───── Nav ───── */
+.nav {
+  background: #0e0e0e;
+  border-bottom: 2px solid;
+  border-image: linear-gradient(90deg, #FF1493, #CC00FF, #FFE500, #FF6B00) 1;
+}
+
+.navInner {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.navInner::-webkit-scrollbar { display: none; }
+
+.navLink {
+  padding: 10px 18px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  white-space: nowrap;
+  transition: all 0.2s;
+  border-bottom: 3px solid transparent;
+  position: relative;
+}
+
+.navLink:hover {
+  color: #FF1493;
+  border-bottom-color: #FF1493;
+  background: rgba(255,20,147,0.06);
+}
+
+.navColor0:hover { color: #FF1493; border-bottom-color: #FF1493; }
+.navColor1:hover { color: #CC00FF; border-bottom-color: #CC00FF; }
+.navColor2:hover { color: #FFE500; border-bottom-color: #FFE500; }
+.navColor3:hover { color: #FF6B00; border-bottom-color: #FF6B00; }
+.navColor4:hover { color: #39FF14; border-bottom-color: #39FF14; }
+
+/* ───── Animations ───── */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
+}
+
+@keyframes fadeSlide {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bangPulse {
+  from { transform: scale(1) rotate(-3deg); }
+  to { transform: scale(1.15) rotate(3deg); }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
