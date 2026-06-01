@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { useSearchParams, Link } from 'react-router-dom'
 import { useApp } from '../context/AppContext'
 import ArticleCard from '../components/ArticleCard'
 import VideoSection from '../components/VideoSection'
@@ -15,9 +15,9 @@ function HeroBanner({ article }) {
         {article.hot && <span className="hot-badge" style={{ marginRight: 8 }}>🔥 חם</span>}
         <h1 className={styles.heroTitle}>{article.title}</h1>
         <p className={styles.heroExcerpt}>{article.excerpt}</p>
-        <a href={`/article/${article.id}`} className={styles.heroBtn}>
+        <Link to={`/article/${article.id}`} className={styles.heroBtn}>
           קרא עוד →
-        </a>
+        </Link>
       </div>
     </div>
   )
@@ -32,10 +32,10 @@ function TrendingBar({ articles }) {
           <span className={styles.trendingLabel}>🔥 טרנדינג</span>
           <div className={styles.trendingList}>
             {top.map((a, i) => (
-              <a key={a.id} href={`/article/${a.id}`} className={styles.trendingItem}>
+              <Link key={a.id} to={`/article/${a.id}`} className={styles.trendingItem}>
                 <span className={styles.trendingNum}>{i + 1}</span>
                 <span className={styles.trendingTitle}>{a.title}</span>
-              </a>
+              </Link>
             ))}
           </div>
         </div>
