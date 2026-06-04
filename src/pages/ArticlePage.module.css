@@ -82,16 +82,237 @@
   color: var(--hot-pink);
 }
 
-.related {
-  padding: 40px 0 80px;
+/* ── Rabbit Hole ── */
+.rabbitHole {
+  padding: 56px 0 80px;
 }
 
-.relatedGrid {
+.rabbitHoleHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.rabbitHoleIcon {
+  font-size: 2.8rem;
+  animation: wiggle 1.5s ease-in-out infinite;
+}
+
+.rabbitHoleTitle {
+  font-size: 1.8rem;
+  font-weight: 900;
+  letter-spacing: -0.5px;
+  color: var(--text);
+}
+
+.rabbitHoleSub {
+  font-size: 0.82rem;
+  color: var(--hot-pink);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.rabbitGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: 20px;
 }
 
+.rabbitCard {
+  display: block;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s;
+}
+
+.rabbitCard:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 50px rgba(255,20,147,0.2);
+  border-color: rgba(255,20,147,0.25);
+}
+
+.rabbitImg {
+  position: relative;
+  aspect-ratio: 16/10;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+  transition: transform 0.5s ease;
+}
+
+.rabbitCard:hover .rabbitImg { transform: scale(1.04); }
+
+.rabbitImgOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(6,6,8,0.85) 0%, transparent 60%);
+}
+
+.rabbitTeaser {
+  position: absolute;
+  bottom: 10px;
+  right: 12px;
+  left: 12px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: #FFE500;
+  letter-spacing: 0.5px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
+
+.rabbitBody {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rabbitTitle {
+  font-size: 0.95rem;
+  font-weight: 800;
+  line-height: 1.4;
+  color: var(--text);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.2s;
+}
+
+.rabbitCard:hover .rabbitTitle { color: var(--hot-pink); }
+
+.rabbitMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rabbitViews {
+  font-size: 0.72rem;
+  color: var(--text-muted);
+}
+
+.rabbitCta {
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--hot-pink);
+}
+
+/* ── Sticky Next ── */
+.stickyNext {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 200;
+  background: var(--dark2);
+  border-top: 2px solid var(--hot-pink);
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 24px;
+  box-shadow: 0 -8px 40px rgba(0,0,0,0.6), 0 -1px 0 rgba(255,20,147,0.3);
+  animation: slideUpBar 0.4s cubic-bezier(0.34,1.56,0.64,1) forwards;
+}
+
+.stickyImgWrap {
+  flex-shrink: 0;
+  width: 80px;
+  height: 56px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.stickyImg {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+}
+
+.stickyBody {
+  flex: 1;
+  min-width: 0;
+}
+
+.stickyLabel {
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: var(--hot-pink);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.stickyTitle {
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 8px;
+}
+
+.stickyActions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.stickyBtn {
+  display: inline-block;
+  padding: 7px 20px;
+  background: var(--hot-pink);
+  color: white;
+  border-radius: 100px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.stickyBtn:hover {
+  background: #e0006e;
+  transform: translateY(-1px);
+}
+
+.stickyCountdown {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+.stickyClose {
+  flex-shrink: 0;
+  background: none;
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.stickyClose:hover {
+  border-color: rgba(255,255,255,0.3);
+  color: var(--text);
+}
+
+/* ── Other ── */
 .notFound {
   text-align: center;
   padding: 120px 20px;
@@ -102,17 +323,26 @@
   margin-bottom: 20px;
 }
 
+/* ── Animations ── */
 @keyframes fadeInUp {
   from { opacity: 0; transform: translateY(20px); }
   to { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 768px) {
-  .title {
-    font-size: 1.5rem;
-  }
+@keyframes slideUpBar {
+  from { transform: translateY(100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
 
-  .relatedGrid {
-    grid-template-columns: 1fr;
-  }
+@keyframes wiggle {
+  0%, 100% { transform: rotate(-8deg); }
+  50% { transform: rotate(8deg); }
+}
+
+@media (max-width: 768px) {
+  .title { font-size: 1.5rem; }
+  .rabbitGrid { grid-template-columns: 1fr; }
+  .stickyNext { padding: 10px 16px; }
+  .stickyImgWrap { width: 60px; height: 44px; }
+  .stickyTitle { font-size: 0.82rem; }
 }

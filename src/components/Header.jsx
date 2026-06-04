@@ -17,7 +17,7 @@ export default function Header() {
     <header className={styles.header}>
       {/* Breaking news ticker */}
       <div className={styles.ticker}>
-        <span className={styles.tickerLabel}>🔴 חם עכשיו</span>
+        <span className={styles.tickerLabel}>♊ עדכון</span>
         <div className={styles.tickerContent}>
           <span key={tickerIndex} className={styles.tickerText}>
             {breakingNews[tickerIndex]}
@@ -29,16 +29,20 @@ export default function Header() {
       <div className={styles.mainHeader}>
         <div className="container" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
           <Link to="/" className={styles.logo}>
-            <span className={styles.logoH}>ה</span>
-            <span className={styles.logoBang}>!</span>
-            <span className={styles.logoM}>מ</span>
-            <span className={styles.logoBang}>!</span>
-            <span className={styles.logoEnd}>עית</span>
+            <div className={styles.logoPrimary}>
+              <span className={styles.logoD}>D</span>
+              <span className={styles.logoI}>I</span>
+              <span className={styles.logoA}>A</span>
+              <span className={styles.logoR}>R</span>
+              <span className={styles.logoY}>Y</span>
+              <span className={styles.logoGemini}>♊</span>
+            </div>
+            <div className={styles.logoSub}>of a typical Gemini Man</div>
           </Link>
 
           <div className={styles.taglineWrap}>
             <div className={styles.tagline}>{BRAND_TAGLINE}</div>
-            <div className={styles.splat}>💦</div>
+            <div className={styles.splat}>🌀</div>
           </div>
         </div>
       </div>
